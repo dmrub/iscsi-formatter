@@ -16,8 +16,8 @@ if [ -e /usr/local/bin/bootstrap-args.sh ]; then
     source /usr/local/bin/bootstrap-args.sh
 fi
 
-infomsg "Starting iscsid ..."
-supervisorctl start iscsid
+#infomsg "Starting iscsid ..."
+#supervisorctl start iscsid
 
 usage() {
     echo "Bootstrap Script"

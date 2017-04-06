@@ -13,6 +13,8 @@ RUN apk --update --no-cache add \
         btrfs-progs \
         xfsprogs xfsprogs-extra \
         e2fsprogs e2fsprogs-extra && \
+        sed -i "s/\(^[[:space:]]*iscsid.startup\)/#\1/g" /etc/iscsi/iscsid.conf && \
+        echo "iscsid.startup = /usr/bin/supervisorctl start iscsid" >> /etc/iscsi/iscsid.conf && \
         chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/bootstrap.sh /usr/local/bin/iscsid.sh && \
         mkdir -p /var/run/supervisor /var/log/supervisor
 
